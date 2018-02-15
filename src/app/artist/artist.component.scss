@@ -1,3 +1,18 @@
+.mainHdr {
+  color:grey;
+}
+
+.ftr {
+  background-color: grey;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+
 .footer {
   position: absolute;
   bottom: 0;
@@ -11,3 +26,6 @@
   color: white;
 
 }
+.card-title .card-subtitle {
+   font-size: .25em;
+ }
