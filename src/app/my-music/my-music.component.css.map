@@ -1,7 +1,7 @@
 {
 "version": 3,
-"mappings": "",
-"sources": [],
+"mappings": "AAAA,YAAa;EACX,UAAU,EAAE,IAAI",
+"sources": ["my-music.component.scss"],
 "names": [],
 "file": "my-music.component.css"
 }

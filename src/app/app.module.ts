@@ -13,6 +13,8 @@ import { routing } from './app.routing';
 import { MyAlbumsComponent } from './my-music/my-albums.component';
 import { MyArtistsComponent } from './my-music/my-artists.component';
 import { MyMusicService } from './my-music.service';
+import { CarouselComponent } from './my-music/carousel.component';
+
 
 
 @NgModule({
@@ -22,7 +24,8 @@ import { MyMusicService } from './my-music.service';
     ArtistComponent,
     MyMusicComponent,
     MyAlbumsComponent,
-    MyArtistsComponent
+    MyArtistsComponent,
+    CarouselComponent
   ],
   imports: [
     BrowserModule,

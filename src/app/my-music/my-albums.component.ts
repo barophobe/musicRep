@@ -1,5 +1,5 @@
-import { AlbumQuery } from '../artist/albumQuery.model';
-import { Component, OnInit } from '@angular/core';
+import { Album } from './album.model';
+import { Component, OnInit, Input } from '@angular/core';
 import {MyMusicService} from '../my-music.service';
 
 @Component({
@@ -8,17 +8,11 @@ import {MyMusicService} from '../my-music.service';
   styleUrls: ['./my-albums.component.scss']
 })
 export class MyAlbumsComponent implements OnInit {
-   albums: AlbumQuery[];
+  @Input() albums: Album[];
 
-  constructor(private myMusicService: MyMusicService) { }
-
-  ngOnInit() {
-    this.myMusicService.getAlbums()
-      .subscribe(
-        (albums: AlbumQuery[]) => {
-          this.albums = albums;
-        }
-      );
+  constructor(private myMusicService: MyMusicService) {
   }
 
+  ngOnInit() {
+  }
 }

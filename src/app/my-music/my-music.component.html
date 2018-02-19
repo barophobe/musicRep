@@ -1,6 +1,33 @@
 <div class="container">
-<p>
-  my-music works!
-  <app-my-albums></app-my-albums>
-</p>
+  <div class="row mainContent">
+    <div class="col-sm-12">
+      <h1>Artist</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae consequatur, dignissimos et laborum molestiae
+        nobis pariatur quia repellendus suscipit. Aliquid asperiores consequuntur doloribus eligendi eveniet ex fugit
+        repudiandae soluta veritatis.</p>
+    </div>
+  </div>
+  <!--  justify-content-center-->
+  <div class="row mainContent">
+    <div class="col-sm-5">
+      <!--<app-my-albums [albums]="albums"></app-my-albums>-->
+      <app-carousel [albums]="albums"></app-carousel>
+    </div>
+    <div class="col-sm-6">
+      <h1>Album Details</h1>
+      <P>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad alias amet aperiam, atque aut dignissimos
+        doloribus dolorum enim, et id magnam numquam porro possimus praesentium quod repellat repellendus ullam
+        vitae?</P>
+    </div>
+
+  </div>
+  <div class="row justify-content-center mainContent">
+    <div class="col-sm-12 justify-content-center">
+      <h1>Artist Details</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae consequatur, dignissimos et laborum molestiae
+        nobis pariatur quia repellendus suscipit. Aliquid asperiores consequuntur doloribus eligendi eveniet ex fugit
+        repudiandae soluta veritatis.</p>
+    </div>
+  </div>
+
 </div>
