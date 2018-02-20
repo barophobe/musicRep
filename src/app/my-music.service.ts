@@ -3,11 +3,14 @@ import { Injectable } from '@angular/core';
 import {Album} from './my-music/album.model';
 import 'rxjs/Rx';
 import { Observable } from 'rxjs';
+import {Artist} from './my-music/artist.model';
 
 
 @Injectable()
 export class MyMusicService {
   private albums: Album[] = [];
+  private artist: Artist;
+
 
   constructor(private http: Http) { }
 
@@ -43,6 +46,22 @@ export class MyMusicService {
         this.albums = alteredAlbums;
         return alteredAlbums;
       })
+      .catch((error: Response) => Observable.throw(error.json()));
+  }
+  getArtist(artistId) {
+    return this.http.get('http://localhost:3000/artist/repo/' + artistId)
+      .map((response: Response) => {
+        const artist = response.json().obj;
+        this.artist = artist;
+        return artist;
+      })
+      .catch((error: Response) => Observable.throw(error.json()));
+  }
+
+  deleteAlbum(album: Album) {
+    this.albums.splice(this.albums.indexOf(album), 1);
+    return this.http.delete('http://localhost:3000/albums/repo/' + album._id)
+      .map((response: Response) => response.json())
       .catch((error: Response) => Observable.throw(error.json()));
   }
 

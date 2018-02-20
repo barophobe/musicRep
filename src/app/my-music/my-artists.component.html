@@ -1,3 +1,22 @@
+<div class="row">
+<div class="col-sm-8">
+
+  <h4>Biography</h4>
 <p>
-  my-artists works!
+  {{ artist[0].profile }}
 </p>
+</div>
+  <div class="col-sm-4">
+    <h5>Members</h5>
+    <ul class="myMusicList">
+      <li *ngFor="let member of artist[0].members">
+        {{ member.name }}
+      </li><!-- *ngIf="artist[0].members > 1; else altMembers"-->
+     <!-- <ngTemplate #altMembers>
+        <li>
+          {{ artist.artistsName }}
+        </li>
+      </ngTemplate>-->
+    </ul>
+</div>
+</div>

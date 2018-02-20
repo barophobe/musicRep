@@ -2,12 +2,13 @@
 
 <ngb-carousel>
   <ng-template ngbSlide *ngFor="let album of albums">
-     <img src="{{album.images[0].uri }}" class="img-fluid" alt="Random first slide" style="height:400px;width:450px;">
+     <img src="{{album.images[0].uri }}" class="img-fluid" alt="Random first slide" style="height:400px;width:450px;" (click)="onAlbumSelect(album)">
     <div class="carousel-caption">
       <h5>{{ album.title }}</h5>
-      <p (click)="name(album)">{{ album.artistsName }}</p>
-      <p>{{ album.myRating }}</p>
+      <p>{{ album.artistsName }}</p>
+
     </div>
   </ng-template>
 </ngb-carousel>
+
 

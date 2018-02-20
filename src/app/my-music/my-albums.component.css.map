@@ -1,7 +1,7 @@
 {
 "version": 3,
-"mappings": "",
-"sources": [],
+"mappings": "AAGA,YAAa;EACX,WAAW,EAAE,KAAK;EAClB,eAAe,EAAE,IAAI",
+"sources": ["my-albums.component.scss"],
 "names": [],
 "file": "my-albums.component.css"
 }
