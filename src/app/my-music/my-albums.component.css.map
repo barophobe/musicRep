@@ -1,6 +1,6 @@
 {
 "version": 3,
-"mappings": "AAGA,YAAa;EACX,WAAW,EAAE,KAAK;EAClB,eAAe,EAAE,IAAI",
+"mappings": "AACA,YAAa;EACX,WAAW,EAAE,KAAK;EAClB,eAAe,EAAE,IAAI",
 "sources": ["my-albums.component.scss"],
 "names": [],
 "file": "my-albums.component.css"

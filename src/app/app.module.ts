@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -14,8 +14,9 @@ import { MyAlbumsComponent } from './my-music/my-albums.component';
 import { MyArtistsComponent } from './my-music/my-artists.component';
 import { MyMusicService } from './my-music.service';
 import { CarouselComponent } from './my-music/carousel.component';
-
-
+import { RegisterComponent } from './auth/register.component';
+import { LoginComponent } from './auth/login.component';
+import { LogoutComponent } from './auth/logout.component';
 
 @NgModule({
   declarations: [
@@ -25,14 +26,18 @@ import { CarouselComponent } from './my-music/carousel.component';
     MyMusicComponent,
     MyAlbumsComponent,
     MyArtistsComponent,
-    CarouselComponent
+    CarouselComponent,
+    RegisterComponent,
+    LoginComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,
     NgbModule.forRoot(),
     FormsModule,
     HttpModule,
-    routing
+    routing,
+    ReactiveFormsModule
   ],
   providers: [ArtistService, MyMusicService],
   bootstrap: [AppComponent]

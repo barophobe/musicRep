@@ -1,7 +1,7 @@
 {
 "version": 3,
-"mappings": "",
-"sources": [],
+"mappings": "AAAA,SAAU;EACR,OAAO,EAAE,YAAY;EACrB,KAAK,EAAE,IAAI;EACX,KAAK,EAAE,IAAI;EACX,WAAW,EAAE,4BAA4B;EACzC,WAAW,EAAE,GAAG",
+"sources": ["carousel.component.scss"],
 "names": [],
 "file": "carousel.component.css"
 }
