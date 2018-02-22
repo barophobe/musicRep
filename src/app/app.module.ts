@@ -17,6 +17,8 @@ import { CarouselComponent } from './my-music/carousel.component';
 import { RegisterComponent } from './auth/register.component';
 import { LoginComponent } from './auth/login.component';
 import { LogoutComponent } from './auth/logout.component';
+import { FooterComponent } from './footer/footer.component';
+import {AuthService} from './auth/auth.service';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,8 @@ import { LogoutComponent } from './auth/logout.component';
     CarouselComponent,
     RegisterComponent,
     LoginComponent,
-    LogoutComponent
+    LogoutComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +42,7 @@ import { LogoutComponent } from './auth/logout.component';
     routing,
     ReactiveFormsModule
   ],
-  providers: [ArtistService, MyMusicService],
+  providers: [ArtistService, MyMusicService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

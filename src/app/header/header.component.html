@@ -10,7 +10,7 @@
         <li routerLinkActive="active" class="nav-item">
           <a class="nav-link" [routerLink]="['/Api']">Home<span class="sr-only">(current)</span></a>
         </li>
-        <li routerLinkActive="active" class="nav-item">
+        <li routerLinkActive="active" class="nav-item" *ngIf="isLoggedIn()">
           <a class="nav-link" [routerLink]="['/My Music']">My Music</a>
         </li>
         <li ngbDropdown class="d-inline-block">
@@ -29,9 +29,11 @@
         <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
       </form>
       <ul class="navbar-nav ml-auto">
-        <li routerLinkActive="active" class="nav-item"><a class="nav-link" [routerLink]="['/Login']">Login</a></li>
-        <li routerLinkActive="active" class="nav-item"><a class="nav-link" [routerLink]="['/Register']">Register</a></li>
-        <li routerLinkActive="active" class="nav-item"><a class="nav-link" [routerLink]="['/Logout']">Log Out</a></li>
+        <li routerLinkActive="active" class="nav-item" *ngIf="!isLoggedIn()"><a class="nav-link"
+                                                                                [routerLink]="['/Login']">Login</a></li>
+        <li routerLinkActive="active" class="nav-item" *ngIf="!isLoggedIn()"><a class="nav-link"
+                                                                                [routerLink]="['/Register']">Register</a></li>
+        <li routerLinkActive="active" class="nav-item" *ngIf="isLoggedIn()"><a class="nav-link" [routerLink]="['/Logout']">Log Out</a></li>
       </ul>
     </div>
   </nav>

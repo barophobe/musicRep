@@ -1,5 +1,5 @@
 <div class="col-sm-8">
-  <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+  <form [formGroup]="authForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
       <label for="firstName">First Name</label>
       <input type="text" id="firstName" class="form-control" formControlName="firstName">
@@ -16,6 +16,6 @@
       <label for="password">Password</label>
       <input type="text" id="password" class="form-control" formControlName="password">
     </div>
-    <button class="btn btn-primary" type="submit" [disabled]="!myForm.valid">Submit</button>
+    <button class="btn btn-primary" type="submit" [disabled]="!authForm.valid">Submit</button>
   </form>
 </div>
