@@ -81,7 +81,8 @@ addAlbum(master: number) {
   const body = JSON.stringify(master);
   const apiURL = `${this.apiRoot}albums/detail/${body}`
   const headers = new Headers({'Content-Type': 'application/json'});
-  return this.http.get(apiURL, {headers: headers })
+  const token = localStorage.getItem('token') ? '?token=' + localStorage.getItem('token') : '';
+  return this.http.get(apiURL + token, {headers: headers })
     .map((response: Response) => response.json())
     .catch((error: Response) => Observable.throw(error.json()));
 }

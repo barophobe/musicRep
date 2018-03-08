@@ -15,7 +15,8 @@ export class MyMusicService {
   constructor(private http: Http) { }
 
   getAlbums() {
-    return this.http.get('http://localhost:3000/albums')
+    const token = localStorage.getItem('token') ? '?token=' + localStorage.getItem('token') : '';
+    return this.http.get('http://localhost:3000/albums' + token)
       .map((response: Response) => {
         const albums = response.json().obj;
         const alteredAlbums: Album[] = [];
@@ -49,7 +50,8 @@ export class MyMusicService {
       .catch((error: Response) => Observable.throw(error.json()));
   }
   getArtist(artistId) {
-    return this.http.get('http://localhost:3000/artist/repo/' + artistId)
+    const token = localStorage.getItem('token') ? '?token=' + localStorage.getItem('token') : '';
+    return this.http.get('http://localhost:3000/artist/repo/' + artistId + token )
       .map((response: Response) => {
         const artist = response.json().obj;
         this.artist = artist;
