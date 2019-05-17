@@ -61,8 +61,9 @@ export class MyMusicService {
   }
 
   deleteAlbum(album: Album) {
+    const token = localStorage.getItem('token') ? '?token=' + localStorage.getItem('token') : '';
     this.albums.splice(this.albums.indexOf(album), 1);
-    return this.http.delete('http://localhost:3000/albums/repo/' + album._id)
+    return this.http.delete('http://localhost:3000/albums/repo/' + album._id + token )
       .map((response: Response) => response.json())
       .catch((error: Response) => Observable.throw(error.json()));
   }
