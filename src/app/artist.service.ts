@@ -2,7 +2,7 @@ import {Http, Response, Headers} from '@angular/http';
 import {HttpClient} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
-import {operators} 'rxjs/Rx';
+/*import {operators} from 'rxjs/Rx';*/
 import 'rxjs/add/operator/map'
 import 'rxjs/add/operator/toPromise';
 import { Observable } from 'rxjs';
