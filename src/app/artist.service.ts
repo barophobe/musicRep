@@ -1,6 +1,8 @@
 import {Http, Response, Headers} from '@angular/http';
+import {HttpClient} from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import 'rxjs/Rx';
+import { map } from 'rxjs/operators';
+import {operators} 'rxjs/Rx';
 import 'rxjs/add/operator/map'
 import 'rxjs/add/operator/toPromise';
 import { Observable } from 'rxjs';
@@ -14,38 +16,29 @@ export class ArtistService {
   results: ArtistQuery[];
   loading: boolean;
   albums: AlbumQuery[]= [];
-  constructor(private http: Http) {
+  constructor(private http: HttpClient) {
     this.results = [];
     this.loading = false;
   }
 
    queryArtist(term: string) {
-    const promise = new Promise((resolve, reject) => {
-      const apiURL = `${this.apiRoot}artist/${term}`;
-      this.http.get(apiURL)
-        .toPromise()
-        .then(
-          response => { // Success
-            this.results = response.json().map( item => {
-              return new ArtistQuery(
-                item.thumb,
-                item.title,
-                item.uri,
-                item.resource_url,
-                item.type,
-                item.id
-              );
-            });
-            resolve();
-          },
-          msg => { // Error
-            reject(msg);
-          }
-        );
-    });
-    return promise;
-  }
+     const apiURL = `${this.apiRoot}artist/${term}`;
+     this.http.get(apiURL)
+       .pipe(map(responseData => {
+         const artistData = [];
+         for (const artist in responseData) {
+           if (responseData.hasOwnProperty(artist)) {
+             artistData.push({ ...responseData[artist] })
+           }
+         }
+         return artistData;
+       })
+       )
+       .subscribe(artist => { // Success
+         console.log(artist)
 
+       })
+   };
   queryAlbums(artist: string) {
     const apiURL = `${this.apiRoot}albums/${artist}`;
     return this.http.get(apiURL)
@@ -82,7 +75,7 @@ addAlbum(master: number) {
   const apiURL = `${this.apiRoot}albums/detail/${body}`
   const headers = new Headers({'Content-Type': 'application/json'});
   const token = localStorage.getItem('token') ? '?token=' + localStorage.getItem('token') : '';
-  return this.http.get(apiURL + token, {headers: headers })
+  return this.http.get(apiURL + token)
     .map((response: Response) => response.json())
     .catch((error: Response) => Observable.throw(error.json()));
 }

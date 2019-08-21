@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { ArtistComponent } from './artist/artist.component';
 import {Http, Response, RequestOptions, Headers, HttpModule} from '@angular/http';
+import { HttpClientModule} from '@angular/common/http';
 import {ArtistService} from './artist.service';
 import { MyMusicComponent } from './my-music/my-music.component';
 import { routing } from './app.routing';
@@ -39,6 +40,7 @@ import {AuthService} from './auth/auth.service';
     NgbModule.forRoot(),
     FormsModule,
     HttpModule,
+    HttpClientModule,
     routing,
     ReactiveFormsModule
   ],
