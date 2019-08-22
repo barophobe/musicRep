@@ -23,9 +23,10 @@ export class ArtistService {
 
    queryArtist(term: string) {
      const apiURL = `${this.apiRoot}artist/${term}`;
-     this.http.get(apiURL)
+     this.http
+       .get<{ArtistQuery}>(apiURL)
        .pipe(map(responseData => {
-         const artistData = [];
+         const artistData: ArtistQuery[] = [];
          for (const artist in responseData) {
            if (responseData.hasOwnProperty(artist)) {
              artistData.push({ ...responseData[artist] })
@@ -35,13 +36,14 @@ export class ArtistService {
        })
        )
        .subscribe(artist => { // Success
-         console.log(artist)
+         this.results = artist;
 
        })
    };
   queryAlbums(artist: string) {
     const apiURL = `${this.apiRoot}albums/${artist}`;
-    return this.http.get(apiURL)
+    return this.http
+      .get(apiURL)
       .map((response: Response) => {
         const albums = response.json();
         let transformedAlbums: AlbumQuery[] = [];
