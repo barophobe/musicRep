@@ -9,7 +9,7 @@ import {Artist} from './artist.model';
   styleUrls: ['./my-music.component.scss']
 })
 export class MyMusicComponent implements OnInit {
-  albums: Album[];
+  albums: Album[] = [];
   album: Album;
   albumSel: Album;
   artist: Artist;

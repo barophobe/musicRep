@@ -43,31 +43,18 @@ export class ArtistService {
   queryAlbums(artist: string) {
     const apiURL = `${this.apiRoot}albums/${artist}`;
     return this.http
-      .get(apiURL)
-      .map((response: Response) => {
-        const albums = response.json();
-        let transformedAlbums: AlbumQuery[] = [];
-        for (let album of albums) {
-          transformedAlbums.push(new AlbumQuery(album.style,
-            album.thumb,
-            album.format,
-            album.country,
-            album.barcode,
-            album.uri,
-            album.community,
-            album.label,
-            album.catno,
-            album.year,
-            album.genre,
-            album.title,
-            album.resource_url,
-            album.type,
-            album.id
-          ));
+      .get<{AlbumQuery}>(apiURL)
+      .pipe(map( response => {
+        const transformedAlbums: AlbumQuery[] = [];
+        for (const album in response) {
+          if (response.hasOwnProperty(album)) {
+            transformedAlbums.push({ ...response[album] })
+          }
         }
         this.albums = transformedAlbums;
+        console.log(transformedAlbums);
         return transformedAlbums;
-      })
+      }))
       .catch((error: Response) => Observable.throw(error.json()));
   }
 
@@ -78,7 +65,7 @@ addAlbum(master: number) {
   const headers = new Headers({'Content-Type': 'application/json'});
   const token = localStorage.getItem('token') ? '?token=' + localStorage.getItem('token') : '';
   return this.http.get(apiURL + token)
-    .map((response: Response) => response.json())
-    .catch((error: Response) => Observable.throw(error.json()));
+    .pipe(map((response) => response))
+    .catch((error) => Observable.throw(error));
 }
 }
